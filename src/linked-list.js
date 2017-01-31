@@ -31,6 +31,7 @@ class LinkedList {
         }
         else {
             throw new Error('List is empty!');
+            return null;
         }
     }
 
@@ -40,6 +41,7 @@ class LinkedList {
         }
         else {
             throw new Error('List is empty!');
+            return null;
         }
     }
     //прописать проверку на валидность индекса
@@ -98,18 +100,22 @@ class LinkedList {
     }
 
     clear() {
-        var currentNode = this._head;
-        var deletedNode = null;
+        
+        
 
-        while (currentNode.next!=null)
+        while (this._head.next)
         {
-            deletedNode = currentNode;
-            currentNode = currentNode.next;
-            deletedNode = null;
-            this.length--;
+        	this._head = this._head.next;
+        	this._head.prev = null;
+            
+            
+            
+           
         }
-        this._head = null;
-        this._tail = null;
+         this._head = null;
+         this._tail = null;
+        
+        this.length = 0;
     }
 
     deleteAt(index) {}
